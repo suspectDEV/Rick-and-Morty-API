@@ -1,10 +1,12 @@
 const express = require("express");
 const app = express();
+const { API_PORT } = process.env
+// export $(cat .env | xargs)
 
 // cors
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+  res.header('Access-Control-Allow-Headers', 'Authorization, X-access-KEY, x-access-token, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
   res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
   next();
@@ -21,5 +23,5 @@ app.use(require("./src/routes/characters.route"));
 app.use(require("./src/routes/locations.route"));
 
 
-app.listen(4000);
-console.log("Server listening on 4000 port")
+app.listen(API_PORT);
+console.log(`Server listening on ${API_PORT} port`)

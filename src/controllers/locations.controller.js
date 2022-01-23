@@ -1,4 +1,4 @@
-const { pool } = require("../env/dev.env");
+const { pool } = require("../services/dev.env");
 
 // Read Characters
 const listLocation = async (req, res) => {
