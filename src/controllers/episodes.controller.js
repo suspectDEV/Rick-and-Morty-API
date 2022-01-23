@@ -34,10 +34,21 @@ const createEpisode = async (req, res) => {
 };
 // Read Episodes
 const listEpisodes = async (req, res) => {
-  const response = await pool.query("SELECT * FROM episodes");
+  var page = req.query.page;
+  var init = 0;
+  if (page) {
+    init = parseInt(page) * 20 - 20;
+  }
+  const response = await pool.query(
+    `SELECT * FROM episode OFFSET ${init} ROWS FETCH FIRST 20 ROW ONLY`
+  );
+  const info = await pool.query("SELECT COUNT(*) fROM episode");
+  var count = parseInt(info.rows[0].count);
+  info.rows.push(count / 20 >= 1 ? Math.ceil(count / 20) : 1);
   res.status(200).json({
-    message: response.rows,
-    code: "episodes/list_ok",
+    info: { count: count, pages: info.rows[1] },
+    results: response.rows,
+    code: "episode/list_ok",
   });
 };
 // Read an episode
@@ -68,9 +79,7 @@ const updateEpisodeInfo = async (req, res) => {
 // Delete an episode
 const deleteAnEpisode = async (req, res) => {
   const id = req.params.id;
-  const response = await pool.query("DELETE FROM episodes WHERE id = $1", [
-    id,
-  ]);
+  const response = await pool.query("DELETE FROM episodes WHERE id = $1", [id]);
   res.status(200).json({
     message: "Episodio eliminado correctamente",
     code: "episodes/del_ok",

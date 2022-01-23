@@ -2,8 +2,8 @@ const { Router } = require("express");
 const router = Router();
 
 // Ctrl
-const { getCharacters } = require("../controllers/characters.controller")
+const { listCharacter } = require("../controllers/characters.controller")
 
-router.get("/characters", getCharacters)
+router.get("/character/", listCharacter)
 
 module.exports = router;
