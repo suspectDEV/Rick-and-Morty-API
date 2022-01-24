@@ -3,15 +3,6 @@ const { pool } = require("../services/dev.env");
 
 // CRUD
 
-// MODEL
-/**
- * name
- * air_date
- * episode
- * url
- * created
- */
-
 // Create an episode
 const createEpisode = async (req, res) => {
   const { name, air_date, episode, url, created } = req.body;

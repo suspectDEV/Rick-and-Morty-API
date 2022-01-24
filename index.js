@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const { API_PORT } = process.env
-// export $(cat .env | xargs)
 
 // cors
 app.use((req, res, next) => {
