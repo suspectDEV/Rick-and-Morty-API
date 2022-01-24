@@ -5,10 +5,17 @@ const listCharacter = async (req, res) => {
   var page = req.query.page;
   var init = 0;
   if (page) {
-    init = (parseInt(page) * 20) - 20;
+    init = parseInt(page) * 20 - 20;
   }
   const response = await pool.query(
-    `SELECT * FROM character OFFSET ${init} ROWS FETCH FIRST 20 ROW ONLY`
+    // `SELECT * FROM character INNER JOIN (SELECT dimension FROM location GROUP BY id) AS valor ON id = location_id OFFSET ${init} ROWS FETCH FIRST 20 ROW ONLY`
+    `SELECT character.*,
+    json_build_object('name', location.name) AS location 
+    FROM character 
+    INNER JOIN location ON location.id = location_id 
+    ORDER BY character.id ASC 
+    OFFSET ${init} ROWS FETCH FIRST 20 ROW ONLY
+    `
   );
   const info = await pool.query("SELECT COUNT(*) fROM character");
   var count = parseInt(info.rows[0].count);

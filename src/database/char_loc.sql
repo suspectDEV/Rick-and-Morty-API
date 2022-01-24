@@ -1,55 +1,7 @@
 -- CREATE DATABASE v_dev;
 DROP TABLE IF EXISTS rel_char_loc;
-DROP TABLE IF EXISTS character;
-
--- Character
-
-CREATE TABLE character(
-  id SERIAL PRIMARY KEY,
-  name VARCHAR(100),
-  status VARCHAR(100),
-  species VARCHAR(100),
-  type VARCHAR(100),
-  gender VARCHAR(100),
-  image VARCHAR(200),
-  url VARCHAR(100),
-  created VARCHAR(100)
-);
-
-INSERT INTO character (name, status, species, type, gender, image, url, created) VALUES
-  ('Rick Sanchez', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/1.jpeg', 'https://', '2022-01-01'),
-  ('Morty Smith', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/2.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 3', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/3.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 4', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/4.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 5', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/5.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 6', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/6.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 7', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/7.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 8', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/8.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 9', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/9.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 10', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/10.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 11', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/11.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 12', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/12.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 13', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/13.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 14', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/14.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 15', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/15.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 16', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/16.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 17', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/17.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 18', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/18.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 19', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/19.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 20', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/20.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 21', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/21.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 22', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/22.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 23', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/23.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 24', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/24.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 25', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/25.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 26', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/26.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 27', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/27.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 28', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/28.jpeg', 'https://', '2022-01-01'),
-  ('Personaje 29', 'Activo', 'Humano', 'Vacío', 'Masculino', 'https://rickandmortyapi.com/api/character/avatar/29.jpeg', 'https://', '2022-01-01');
-
 
 -- Location
-
 DROP TABLE IF EXISTS location;
 
 CREATE TABLE location(
@@ -113,44 +65,51 @@ INSERT INTO location (name, type, dimension, url, created) VALUES
   ('Lugar #49', 'Cluster', 'unknown', 'https://rickandmortyapi.com/api/location/49', 'Hoy');
 
 
--- Relation between characters and locations
 
-CREATE TABLE rel_char_loc(
+-- Character
+DROP TABLE IF EXISTS character;
+
+CREATE TABLE character(
   id SERIAL PRIMARY KEY,
-  character_id INT,
+  name VARCHAR(100),
+  status VARCHAR(100),
+  species VARCHAR(100),
+  type VARCHAR(100),
+  gender VARCHAR(100),
+  image VARCHAR(200),
   location_id INT,
-  CONSTRAINT fk_character FOREIGN KEY(character_id) REFERENCES character(id),
-  CONSTRAINT fk_location FOREIGN KEY(location_id) REFERENCES location(id)
+  CONSTRAINT fk_location FOREIGN KEY(location_id) REFERENCES location(id),
+  url VARCHAR(100),
+  created VARCHAR(100)
 );
 
-INSERT INTO rel_char_loc (character_id, location_id) VALUES
-  (1, 1),
-  (2, 1),
-  (3, 1),
-  (4, 1),
-  (5, 1),
-  (6, 1),
-  (7, 1),
-  (8, 1),
-  (9, 1),
-  (10, 1),
-  (11, 1),
-  (12, 1),
-  (13, 1),
-  (14, 1),
-  (15, 1),
-  (16, 2),
-  (17, 2),
-  (18, 2),
-  (19, 2),
-  (20, 2),
-  (21, 2),
-  (22, 2),
-  (23, 2),
-  (24, 2),
-  (25, 2),
-  (26, 2),
-  (27, 2),
-  (28, 2),
-  (29, 2);
-
+INSERT INTO character (name, status, species, type, gender, image, location_id, url, created) VALUES
+  ('Rick Sanchez', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/1.jpeg', 1, 'https://', '2022-01-01'),
+  ('Morty Smith', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/2.jpeg', 1, 'https://', '2022-01-01'),
+  ('Personaje 3', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/3.jpeg', 1, 'https://', '2022-01-01'),
+  ('Personaje 4', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/4.jpeg', 1, 'https://', '2022-01-01'),
+  ('Personaje 5', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/5.jpeg', 1, 'https://', '2022-01-01'),
+  ('Personaje 6', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/6.jpeg', 1, 'https://', '2022-01-01'),
+  ('Personaje 7', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/7.jpeg', 1, 'https://', '2022-01-01'),
+  ('Personaje 8', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/8.jpeg', 1, 'https://', '2022-01-01'),
+  ('Personaje 9', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/9.jpeg', 1, 'https://', '2022-01-01'),
+  ('Personaje 10', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/10.jpeg', 1, 'https://', '2022-01-01'),
+  ('Personaje 11', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/11.jpeg', 1, 'https://', '2022-01-01'),
+  ('Personaje 12', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/12.jpeg', 1, 'https://', '2022-01-01'),
+  ('Personaje 13', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/13.jpeg', 1, 'https://', '2022-01-01'),
+  ('Personaje 14', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/14.jpeg', 1, 'https://', '2022-01-01'),
+  ('Personaje 15', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/15.jpeg', 1, 'https://', '2022-01-01'),
+  ('Personaje 16', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/16.jpeg', 2, 'https://', '2022-01-01'),
+  ('Personaje 17', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/17.jpeg', 2, 'https://', '2022-01-01'),
+  ('Personaje 18', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/18.jpeg', 2, 'https://', '2022-01-01'),
+  ('Personaje 19', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/19.jpeg', 2, 'https://', '2022-01-01'),
+  ('Personaje 20', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/20.jpeg', 2, 'https://', '2022-01-01'),
+  ('Personaje 21', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/21.jpeg', 2, 'https://', '2022-01-01'),
+  ('Personaje 22', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/22.jpeg', 2, 'https://', '2022-01-01'),
+  ('Personaje 23', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/23.jpeg', 2, 'https://', '2022-01-01'),
+  ('Personaje 24', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/24.jpeg', 2, 'https://', '2022-01-01'),
+  ('Personaje 25', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/25.jpeg', 2, 'https://', '2022-01-01'),
+  ('Personaje 26', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/26.jpeg', 2, 'https://', '2022-01-01'),
+  ('Personaje 27', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/27.jpeg', 2, 'https://', '2022-01-01'),
+  ('Personaje 28', 'Alive', 'Human', '', 'Male', 'https://rickandmortyapi.com/api/character/avatar/28.jpeg', 2, 'https://', '2022-01-01'),
+  ('Personaje 29', 'Activo', 'Humano', 'Vacío', 'Masculino', 'https://rickandmortyapi.com/api/character/avatar/29.jpeg', 2, 'https://', '2022-01-01');
