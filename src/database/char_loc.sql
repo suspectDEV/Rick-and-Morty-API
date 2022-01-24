@@ -1,8 +1,8 @@
--- CREATE DATABASE v_dev;
-DROP TABLE IF EXISTS rel_char_loc;
+CREATE DATABASE v_dev;
+DROP TABLE IF EXISTS character;
+DROP TABLE IF EXISTS location;
 
 -- Location
-DROP TABLE IF EXISTS location;
 
 CREATE TABLE location(
   id SERIAL PRIMARY KEY,
@@ -67,7 +67,6 @@ INSERT INTO location (name, type, dimension, url, created) VALUES
 
 
 -- Character
-DROP TABLE IF EXISTS character;
 
 CREATE TABLE character(
   id SERIAL PRIMARY KEY,

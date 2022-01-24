@@ -1,4 +1,4 @@
--- CREATE DATABASE v_dev;
+CREATE DATABASE v_dev;
 DROP TABLE IF EXISTS episode;
 
 CREATE TABLE episode(
