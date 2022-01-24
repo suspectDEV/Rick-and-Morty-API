@@ -1,0 +1,284 @@
+{
+	"info": {
+		"_postman_id": "4b301bdf-e4b8-4bbe-b326-94222fd8864e",
+		"name": "Vertebra-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Character",
+			"item": [
+				{
+					"name": "List characters",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{HARDC_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url_api}}/character",
+							"host": [
+								"{{url_api}}"
+							],
+							"path": [
+								"character"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Episode",
+			"item": [
+				{
+					"name": "List episodes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{HARDC_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url_api}}/episode",
+							"host": [
+								"{{url_api}}"
+							],
+							"path": [
+								"episode"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a episode",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{HARDC_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url_api}}/episode/1",
+							"host": [
+								"{{url_api}}"
+							],
+							"path": [
+								"episode",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a episode",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{HARDC_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Creado desde postman",
+									"type": "text"
+								},
+								{
+									"key": "air_date",
+									"value": "2022-01-01",
+									"type": "text"
+								},
+								{
+									"key": "episode",
+									"value": "POSTMAN",
+									"type": "text"
+								},
+								{
+									"key": "url",
+									"value": "https://postman.com",
+									"type": "text"
+								},
+								{
+									"key": "created",
+									"value": "2022-01-01",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url_api}}/episode",
+							"host": [
+								"{{url_api}}"
+							],
+							"path": [
+								"episode"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a episode",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{HARDC_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Editado desde postman",
+									"type": "text"
+								},
+								{
+									"key": "air_date",
+									"value": "2022-02-02",
+									"type": "text"
+								},
+								{
+									"key": "episode",
+									"value": "POSTMAN_UPDT",
+									"type": "text"
+								},
+								{
+									"key": "url",
+									"value": "https://identity.getpostman.com/",
+									"type": "text"
+								},
+								{
+									"key": "created",
+									"value": "2022-02-02",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url_api}}/episode/1",
+							"host": [
+								"{{url_api}}"
+							],
+							"path": [
+								"episode",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a episode",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{HARDC_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url_api}}/episode/1",
+							"host": [
+								"{{url_api}}"
+							],
+							"path": [
+								"episode",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Location",
+			"item": [
+				{
+					"name": "List locations",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{HARDC_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url_api}}/character",
+							"host": [
+								"{{url_api}}"
+							],
+							"path": [
+								"character"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url_api",
+			"value": "localhost:4000",
+			"type": "string"
+		},
+		{
+			"key": "HARDC_TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.c_C9oJ3QbnPDLuWgl4NMOniNlyvxrIUaTrKeMrDjdFU",
+			"type": "string"
+		}
+	]
+}
